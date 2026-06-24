@@ -56,7 +56,7 @@ Based on selection, create the `.eosa/` directory and write `config.json`.
 
 ```json
 {
-  "eosa_version": "1.0.0",
+  "eosa_version": "0.1.0",
   "schema_version": 1,
   "initialized_at": "[current ISO8601 timestamp]",
   "active_guidelines": [
@@ -66,6 +66,20 @@ Based on selection, create the `.eosa/` directory and write `config.json`.
       "file": "security-pipa.md",
       "version": "2024",
       "mandatory": true
+    },
+    {
+      "id": "accessibility-kwcag22",
+      "name": "Web Accessibility KWCAG 2.2",
+      "file": "accessibility-kwcag22.md",
+      "version": "2.2",
+      "mandatory": true
+    },
+    {
+      "id": "design-krds",
+      "name": "KRDS Design Patterns",
+      "file": "design-krds.md",
+      "version": "1.1",
+      "mandatory": false
     }
   ],
   "exclude_paths": [
@@ -79,7 +93,7 @@ Based on selection, create the `.eosa/` directory and write `config.json`.
 }
 ```
 
-Include only the selected guidelines in `active_guidelines`.
+Include only the selected guidelines in `active_guidelines` (remove unselected entries).
 
 #### Step 4: Update CLAUDE.md
 
@@ -169,7 +183,12 @@ DES-0.2 Use KRDS components — do NOT reimplement components KRDS already provi
     Modal  → `class="krds-modal fade"` + `role="dialog"`
     Pagination → `class="krds-pagination"` + `.page-link.active`
     Spinner    → `class="krds-spinner" role="status"`
-    Masthead   → `id="krds-masthead"` | Header → `id="krds-header"`
+    Masthead exact HTML:
+      `<div id="krds-masthead"><div class="toggle-wrap"><div class="toggle-head"><div class="inner"><span class="nuri-txt">이 누리집은 대한민국 공식 전자정부 누리집입니다.</span></div></div></div></div>`
+    Header skeleton (class names must match exactly):
+      `<header id="krds-header"><div class="header-in"><div class="header-container"><div class="inner"><div class="header-utility"><ul class="utility-list"><li>...</li></ul></div><div class="header-branding"><h2 class="logo"><a href="/"><span class="sr-only">[서비스명] 홈으로 이동</span></a></h2></div></div></div></div></header>`
+    Footer skeleton (class names must match exactly):
+      `<footer id="krds-footer"><div class="inner"><div class="f-logo"><span class="sr-only">[기관명]</span></div><div class="f-cnt"><div class="f-info">...</div></div><div class="f-btm"><div class="f-btm-text"><div class="f-menu"><a href="/privacy" class="point">개인정보처리방침</a></div><p class="f-copy">© [연도] [기관명]. All rights reserved.</p></div><div class="krds-identifier"><span class="logo"><span class="sr-only">[기관명]</span></span></div></div></div></footer>`
   React/Vue named imports (same component names for both frameworks):
     `import { Button, TextInput, Modal, Pagination, Spinner, Tab, Table, Checkbox, Radio, Select, Textarea, Badge, Masthead, Header, SkipLink } from 'krds-react'`
     Button: `<Button variant="primary" size="medium">` (variant: primary|secondary|tertiary|text|link|icon)
@@ -178,6 +197,7 @@ DES-0.2 Use KRDS components — do NOT reimplement components KRDS already provi
     Pagination: `<Pagination totalPages={10} currentPage={1} onChange={fn}>`
     Spinner: `<Spinner label="로딩 중">`
 DES-0.3 Custom CSS allowed only for layout/spacing not covered by KRDS; use KRDS token variables (`--krds-*`) for colors and spacing
+DES-0.4 Before implementing any complex KRDS component, read the official markup from `node_modules/krds-uiux/html/code/[component].html` (e.g. `calendar.html`, `modal.html`, `accordion.html`, `tab.html`, `table.html`, `pagination.html`, `step_indicator.html`, `breadcrumb.html`, `file_upload.html`, `date_input.html`, `toggle_switch.html`, `spinner.html`, `skip_link.html`, `textarea.html`, `select.html`, `checkbox.html`, `radio_button.html`, `text_input.html`) — use exact class names from the file, never guess
 DES-1.1 Government banner at top of page, no role attribute on masthead div
 DES-1.2 Header: logo top-left, utility links top-right (≤4, separated by divider), order: banner→utility→logo→icons→nav
 DES-1.3 Footer: service logo + contact + copyright required; privacy policy link required if PII processed; order: logo→contact→utility links→policy links→copyright→org identifier; footer must be last element with no gap at bottom

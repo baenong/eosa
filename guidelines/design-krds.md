@@ -204,18 +204,24 @@ React와 Vue 모두 동일한 컴포넌트 이름을 사용하며, import 패키
 - **올바른 예시 (HTML)**:
   ```html
   <header id="krds-header">
-    <!-- 유틸리티 링크: 우측 상단, 4개 이하, 구분자(|) 사용 -->
-    <div class="header-utility">
-      <ul class="utility-list">
-        <li><a href="#" class="krds-btn small text">사이트맵</a></li>
-        <li><a href="#" class="krds-btn small text">로그인</a></li>
-      </ul>
-    </div>
-    <!-- 서비스 로고: 왼쪽 상단 -->
-    <div class="header-branding">
-      <h2 class="logo">
-        <a href="/"><span class="sr-only">[기관명] 홈으로 이동</span></a>
-      </h2>
+    <div class="header-in">
+      <div class="header-container">
+        <div class="inner">
+          <!-- 유틸리티 링크: 우측 상단, 4개 이하 -->
+          <div class="header-utility">
+            <ul class="utility-list">
+              <li><a href="#" class="krds-btn small text">사이트맵</a></li>
+              <li><a href="#" class="krds-btn small text">로그인</a></li>
+            </ul>
+          </div>
+          <!-- 서비스 로고: 왼쪽 상단 -->
+          <div class="header-branding">
+            <h2 class="logo">
+              <a href="/"><span class="sr-only">[기관명] 홈으로 이동</span></a>
+            </h2>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
   ```
@@ -229,21 +235,37 @@ React와 Vue 모두 동일한 컴포넌트 이름을 사용하며, import 패키
 - **기본 동작**: 푸터에 서비스 로고·대표 연락처·저작권 정보 필수 제공. 개인정보를 처리하는 서비스는 개인정보 처리 방침 링크 필수. 정보 순서는 ① 서비스 로고 → ② 연락처 → ③ 유틸리티 링크 → ④ 정책 링크 → ⑤ 저작권 정보 → ⑥ 운영기관 식별자 유지. 푸터는 항상 화면 가장 마지막 요소. 콘텐츠가 짧아도 푸터 하단에 빈 여백 없음
 - **올바른 예시 (HTML)**:
   ```html
-  <footer>
-    <!-- ① 서비스 로고 -->
-    <div class="footer-logo"><img src="/logo.svg" alt="[기관명] 로고"></div>
-    <!-- ② 연락처 (전화번호는 tel:, 이메일은 mailto: 링크) -->
-    <address>
-      <a href="tel:02-1234-5678">02-1234-5678</a> |
-      <a href="mailto:info@agency.go.kr">info@agency.go.kr</a>
-    </address>
-    <!-- ④ 정책 링크: 개인정보 처리 방침 필수 -->
-    <nav aria-label="정책 링크">
-      <a href="/privacy"><strong>개인정보 처리 방침</strong></a>
-      <a href="/terms">이용약관</a>
-    </nav>
-    <!-- ⑤ 저작권 정보 -->
-    <p class="copyright">Copyright ⓒ [기관명]. All rights reserved.</p>
+  <footer id="krds-footer">
+    <div class="inner">
+      <!-- ① 서비스 로고 -->
+      <div class="f-logo">
+        <span class="sr-only">[기관명]</span>
+      </div>
+      <div class="f-cnt">
+        <!-- ② 연락처 (전화번호는 tel:, 이메일은 mailto: 링크) -->
+        <div class="f-info">
+          <ul class="info-cs">
+            <li><strong class="strong">대표전화 02-1234-5678</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div class="f-btm">
+        <div class="f-btm-text">
+          <!-- ④ 정책 링크: 개인정보처리방침 필수, class="point"로 강조 -->
+          <div class="f-menu">
+            <a href="/privacy" class="point">개인정보처리방침</a>
+            <a href="/terms">이용약관</a>
+          </div>
+          <!-- ⑤ 저작권 정보 -->
+          <p class="f-copy">© 2024 [기관명]. All rights reserved.</p>
+        </div>
+        <!-- ⑥ 운영기관 식별자 -->
+        <div class="krds-identifier">
+          <span class="logo"><span class="sr-only">[기관명]</span></span>
+          <span class="ban-txt">이 누리집은 [부처명] 누리집입니다.</span>
+        </div>
+      </div>
+    </div>
   </footer>
   ```
 - **의심 패턴**: 저작권 정보 없음, 개인정보 처리 방침 링크 없음, 연락처 미제공, 푸터 하단 흰 여백, 정보 순서 임의 변경
