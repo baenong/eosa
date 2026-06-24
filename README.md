@@ -6,6 +6,17 @@
 
 ---
 
+## 예시
+
+> 프롬프트: **"회원가입 폼 HTML 페이지 만들어줘"**
+
+| 기본 Claude Code | EOSA 적용 후 |
+|:---:|:---:|
+| ![기본 Claude Code 결과](.github/assets/example_by_basic.png) | ![EOSA 적용 결과](.github/assets/example_by_eosa.png) |
+| 임의 스타일, KRDS 미사용 | KRDS 컴포넌트·접근성·보안 자동 적용 |
+
+---
+
 ## 설계 철학
 
 **Eosa는 "공공기관 가이드라인을 내면화한 개발자"처럼 동작하게 합니다.**
