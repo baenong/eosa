@@ -1,0 +1,2 @@
+description = "기관 가이드라인 파일(PDF/Markdown/텍스트)을 EOSA 형식으로 변환 후 프로젝트에 추가. PDF는 자동 변환됩니다."
+prompt = "커스텀 가이드라인을 추가하세요. 파일 경로: {{args}}"

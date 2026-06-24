@@ -1,0 +1,10 @@
+{
+  "name": "eosa",
+  "version": "0.1.0",
+  "description": "Follow the guidelines. Eosa is watching you. — 공공기관 AI 코딩 가이드라인 준수 플러그인",
+  "author": {
+    "name": "BaeNong",
+    "url": "https://github.com/baenong"
+  },
+  "hooks": "./hooks/claude-codex-hooks.json"
+}

@@ -1,0 +1,2 @@
+description = "현재 변경사항(git diff) 또는 지정 파일을 공공기관 가이드라인으로 검토"
+prompt = "eosa-review로 가이드라인 검토하세요. 대상: {{args}}"

@@ -1,0 +1,2 @@
+description = "프로젝트 전체 파일을 공공기관 가이드라인으로 감사"
+prompt = "eosa-audit으로 프로젝트 전체를 감사하세요."

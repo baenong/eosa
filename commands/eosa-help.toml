@@ -1,0 +1,2 @@
+description = "EOSA 명령어 및 현재 활성 가이드라인 설정 확인"
+prompt = "eosa 도움말과 현재 설정을 표시하세요."

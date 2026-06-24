@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "eosa",
+  "description": "Follow the guidelines. Eosa is watching you. — 공공기관 AI 코딩 가이드라인 준수 플러그인",
+  "owner": {
+    "name": "BaeNong",
+    "url": "https://github.com/baenong"
+  },
+  "plugins": [
+    {
+      "name": "eosa",
+      "description": "정보보안(PIPA), 웹접근성(KWCAG 2.2), KRDS 디자인 패턴을 내면화한 공공기관 개발자 모드. 비전공 개발자도 가이드라인을 준수하는 코드를 작성할 수 있도록 지원합니다.",
+      "source": "./",
+      "category": "compliance"
+    }
+  ]
+}

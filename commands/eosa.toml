@@ -1,0 +1,2 @@
+description = "공공기관 코딩 가이드라인(EOSA) 초기화 또는 활성화. 'off' 인수로 비활성화"
+prompt = "공공기관 가이드라인(eosa)을 시작하세요. {{args}}"
