@@ -23,7 +23,8 @@ EOSA is not initialized. Run /eosa first.
 ### Step 2: Determine review scope
 
 - **Argument provided** (e.g., `/eosa-review src/auth.py`): review that file only
-- **No argument**: run `git diff --name-only HEAD~1 HEAD` to find changed files.
+- **No argument**: run `git diff HEAD --name-only` to find uncommitted changes (staged and unstaged).
+  If that returns nothing (no uncommitted changes), fall back to `git diff --name-only HEAD~1 HEAD` to review the last commit.
   If no git history, review the currently open file, or ask the user for a file path if it cannot be determined.
 
 Reviewable file types: `.py`, `.js`, `.ts`, `.jsx`, `.tsx`, `.vue`, `.html`, `.jinja`, `.jinja2`, `.css`, `.scss`
@@ -60,7 +61,7 @@ Output in the following format:
   `<img src="logo.png">` → `<img src="logo.png" alt="Agency logo">`
 
 - **templates/login.html:52** — DES-1.3 Footer missing privacy policy link
-  Add `<a href="/privacy">개인정보 처리 방침</a>` to footer
+  Add `<a href="/privacy" class="point">개인정보처리방침</a>` to footer
 
 #### 🟢 Low (recommended)
 - **templates/login.html:28** — ACC-3.5 / DES-6.1 label not connected

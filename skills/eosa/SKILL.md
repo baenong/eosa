@@ -13,7 +13,7 @@ Guidelines are not external constraints — they are natural development habits.
 
 ## Persistence
 
-**Active in every response.** Remains active until "/eosa off" or "disable eosa" is stated.
+**Active in every response.** Remains active until "/eosa off" is stated.
 Active even when uncertain. Use `/eosa-review` to review current changes, `/eosa-audit` for a full audit.
 
 ## Workflow
@@ -62,21 +62,21 @@ Based on selection, create the `.eosa/` directory and write `config.json`.
   "active_guidelines": [
     {
       "id": "security-pipa",
-      "name": "Information Security & Personal Data Protection",
+      "name": "정보보안 및 개인정보보호",
       "file": "security-pipa.md",
       "version": "2024",
       "mandatory": true
     },
     {
       "id": "accessibility-kwcag22",
-      "name": "Web Accessibility KWCAG 2.2",
+      "name": "웹접근성 KWCAG 2.2",
       "file": "accessibility-kwcag22.md",
       "version": "2.2",
       "mandatory": true
     },
     {
       "id": "design-krds",
-      "name": "KRDS Design Patterns",
+      "name": "디지털 정부서비스 UI/UX (KRDS)",
       "file": "design-krds.md",
       "version": "1.1",
       "mandatory": false
@@ -209,7 +209,7 @@ DES-3.1 nav: aria-label required, menu button aria-expanded
 DES-3.2 Pagination: `.page-link.active` + `<span class="sr-only">현재페이지 </span>` inside active link
 DES-3.3 Breadcrumb: omit on 1-level sites and main/landing pages; do not use for step indicators; first item=home link, last item=parent of current page (not current page itself); max 4 items, single row, left-aligned
 DES-4.1 Modals: open only on user action (`.open-modal` + `data-target`), use as last resort only
-DES-4.2 Tabs: no disabled attribute, use aria-selected on `role="tab"` li
+DES-4.2 Tabs: no disabled attribute, use aria-selected on `role="tab"` button (not li)
 DES-4.3 Tables: caption·th·scope required, empty cells "-"
 DES-5.1 Actions → `<button>`, navigation → `<a>`, semantic distinction required
 DES-5.2 Links: not color-only (provide underline with 3:1 contrast or icon); email → `href="mailto:"`, phone → `href="tel:"`; external links must show icon or "새 창 열림" text; no "click here"/"더보기" standalone link text
@@ -300,4 +300,4 @@ EOSA active — [guideline list]. Writing code that complies with the guidelines
 ## Boundaries
 
 EOSA determines what (code compliance), not how you communicate.
-"/eosa off" or "disable eosa": deactivates.
+"/eosa off": deactivates.

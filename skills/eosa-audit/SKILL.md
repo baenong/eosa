@@ -101,7 +101,7 @@ Rule reference priority:
 
 **DES-1.3 Footer missing required elements** (1 instance)
 - `templates/base.html:120` — Footer has no privacy policy link
-  → Add `<a href="/privacy">개인정보 처리 방침</a>` to footer policy links
+  → Add `<a href="/privacy" class="point">개인정보처리방침</a>` to footer policy links
 
 **DES-0.2 KRDS component not used** (2 instances)
 - `templates/apply.html:18` — Custom button instead of KRDS component

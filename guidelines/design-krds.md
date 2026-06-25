@@ -174,6 +174,36 @@ React와 Vue 모두 동일한 컴포넌트 이름을 사용하며, import 패키
 - **주석 템플릿**: `/* EOSA[디자인]: KRDS 토큰 변수 미사용 의심 (Rule ID: DES-0.3) -- var(--krds-*) 변수 사용 권장 */`
 - **근거**: krds-uiux npm 패키지 CSS 토큰 (resources/css/token/krds_tokens.css)
 
+### DES-0.4 복잡한 컴포넌트 구현 전 공식 마크업 파일 참조
+
+- **심각도**: 중간
+- **기본 동작**: Calendar·Modal·Accordion·Tab·Table·Pagination·StepIndicator·Breadcrumb·FileUpload·DateInput·ToggleSwitch·Spinner·SkipLink·Textarea·Select·Checkbox·Radio·TextInput 구현 전에 반드시 `node_modules/krds-uiux/html/code/[component].html` 파일을 읽고 정확한 class명 사용. 추측으로 class명 작성 금지
+- **참조 파일 목록**:
+
+| 컴포넌트 | 파일명 |
+|---|---|
+| Calendar | `calendar.html` |
+| Modal | `modal.html` |
+| Accordion | `accordion.html` |
+| Tab | `tab.html` |
+| Table | `table.html` |
+| Pagination | `pagination.html` |
+| StepIndicator | `step_indicator.html` |
+| Breadcrumb | `breadcrumb.html` |
+| FileUpload | `file_upload.html` |
+| DateInput | `date_input.html` |
+| ToggleSwitch | `toggle_switch.html` |
+| Spinner | `spinner.html` |
+| SkipLink | `skip_link.html` |
+| Textarea | `textarea.html` |
+| Select | `select.html` |
+| Checkbox | `checkbox.html` |
+| Radio | `radio_button.html` |
+| TextInput | `text_input.html` |
+
+- **의심 패턴**: 패키지 파일 확인 없이 class명 추측 작성, 가이드라인 예시와 다른 class명 사용
+- **근거**: krds-uiux npm 패키지 `html/code/` 디렉토리 (공식 컴포넌트 마크업)
+
 ---
 
 ## DES-1.0 아이덴티티
@@ -187,8 +217,14 @@ React와 Vue 모두 동일한 컴포넌트 이름을 사용하며, import 패키
   <!-- 건너뛰기 링크 → 공식 배너 → 헤더 순서 -->
   <a href="#main-content" class="skip-nav">본문으로 바로가기</a>
   <!-- masthead: role 부여 금지 — <header>가 암묵적 banner 랜드마크이므로 중복 방지 -->
-  <div class="gov-masthead">
-    <span>대한민국 정부 공식 서비스입니다.</span>
+  <div id="krds-masthead">
+    <div class="toggle-wrap">
+      <div class="toggle-head">
+        <div class="inner">
+          <span class="nuri-txt">이 누리집은 대한민국 공식 전자정부 누리집입니다.</span>
+        </div>
+      </div>
+    </div>
   </div>
   <header>...</header>
   <main id="main-content">...</main>

@@ -38,15 +38,16 @@ const GUIDELINE_SUMMARIES = {
       '프레임워크에 맞는 KRDS 패키지 설치 — HTML: npm install krds-uiux / React: npm install krds-react / Vue: npm install krds-vue',
       'KRDS가 제공하는 컴포넌트는 직접 구현하지 말고 반드시 라이브러리 사용 — 버튼: krds-btn / 입력: krds-input / 모달: krds-modal',
       'React·Vue 컴포넌트: import { Button, TextInput, Modal, Pagination, Spinner } from \'krds-react\'',
+      '복잡한 컴포넌트(Calendar·Modal·Accordion·Tab·Table·Pagination·StepIndicator 등) 구현 전 node_modules/krds-uiux/html/code/[component].html 파일을 먼저 읽고 정확한 class명 사용 — 추측 금지',
       '색상·간격은 KRDS 토큰 변수 사용 — var(--krds-*), 임의 hex 색상 직접 사용 금지',
       '입력 필드: label 필수, placeholder가 label을 대체 불가 — .form-group > .form-tit > label + .form-conts 구조 준수',
-      '푸터: 로고 + 연락처 + 저작권 필수, 개인정보 수집 시 개인정보 처리 방침 링크 필수',
+      '푸터: 로고 + 연락처 + 저작권 필수, 개인정보 수집 시 개인정보처리방침 링크(<a class="point">) 필수',
     ],
   },
 };
 
-// Loads guideline rules from a markdown file by extracting '기본 동작' lines.
-// Used for custom guidelines not listed in GUIDELINE_SUMMARIES.
+// Loads rules from a custom guideline file by extracting '기본 동작' lines.
+// Used for guidelines added via /eosa-add-guideline (not in GUIDELINE_SUMMARIES).
 function loadGuidelineFromFile(guidelineConfig) {
   try {
     const filePath = path.join(getPluginRoot(), 'guidelines', guidelineConfig.file);
@@ -69,7 +70,7 @@ function loadGuidelineFromFile(guidelineConfig) {
   }
 }
 
-function getFallbackInstructions(activeGuidelines) {
+function getEosaInstructions(activeGuidelines) {
   const lines = [
     'EOSA 활성 — 한국 공공기관 코딩 가이드라인',
     '',
@@ -96,11 +97,6 @@ function getFallbackInstructions(activeGuidelines) {
   return lines.join('\n');
 }
 
-function getEosaInstructions(activeGuidelines) {
-  return getFallbackInstructions(activeGuidelines);
-}
-
 module.exports = {
-  getFallbackInstructions,
   getEosaInstructions,
 };

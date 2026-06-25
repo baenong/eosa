@@ -30,6 +30,11 @@
 
 ## 설치
 
+### 사전 요구사항
+
+- **Node.js** — 훅 실행에 필요
+- **Java** — `/eosa-add-guideline`으로 PDF 변환 시 필요 (없어도 나머지 기능은 정상 동작)
+
 ### Claude Code
 
 ```
@@ -121,12 +126,12 @@ password = os.environ.get("DB_PASSWORD")  # 환경변수 사용 (SEC-1.2 자동 
 
 | Rule ID | 내용               | 심각도  |
 | ------- | ------------------ | ------- |
-| ACC-1.1 | img alt 속성 필수  | 🔴 높음 |
-| ACC-2.1 | 키보드 접근성      | 🔴 높음 |
-| ACC-3.1 | form label 연결    | 🔴 높음 |
-| ACC-4.1 | html lang 속성     | 🔴 높음 |
-| ACC-1.3 | 명도대비 4.5:1     | 🟡 중간 |
-| ACC-2.2 | 포커스 스타일 유지 | 🔴 높음 |
+| ACC-1.1 | img alt 속성 필수    | 🔴 높음 |
+| ACC-2.1 | 키보드 접근성        | 🔴 높음 |
+| ACC-3.1 | html lang 속성 필수  | 🔴 높음 |
+| ACC-3.5 | form label 연결      | 🔴 높음 |
+| ACC-1.8 | 명도대비 4.5:1       | 🟡 중간 |
+| ACC-2.2 | 포커스 스타일 유지   | 🔴 높음 |
 
 ### [디자인] KRDS 디자인 패턴
 
@@ -154,7 +159,7 @@ password = os.environ.get("DB_PASSWORD")  # 환경변수 사용 (SEC-1.2 자동 
 ```
 
 ```css
-/* EOSA[디자인]: KRDS 색상 토큰 대신 하드코딩 색상 (Rule ID: DES-1.1) — 색상 토큰 변수 사용 권장 */
+/* EOSA[디자인]: KRDS 색상 토큰 대신 하드코딩 색상 (Rule ID: DES-0.3) — 색상 토큰 변수 사용 권장 */
 ```
 
 ---
@@ -163,7 +168,7 @@ password = os.environ.get("DB_PASSWORD")  # 환경변수 사용 (SEC-1.2 자동 
 
 ```json
 {
-  "eosa_version": "1.0.0",
+  "eosa_version": "0.1.0",
   "schema_version": 1,
   "initialized_at": "2024-01-15T09:30:00Z",
   "active_guidelines": [
